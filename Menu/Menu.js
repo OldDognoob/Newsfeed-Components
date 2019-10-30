@@ -35,26 +35,29 @@ let menuItems = [
 */
 function menuCreator(menuList){
   const menu = document.createElement('div');
-  const list = document.createElement('list');
+  const list = document.createElement('ul');
 
   menu.append(list);
 
   menu.classList.add('menu');
-  list.classList.add('list');
+  menu.classList.add('menu--open');
+  list.classList.add('ul');
 
   
 
   menuList.forEach(element => {
     let li = document.createElement('li');
-    li.textContent = element;
     list.append(li);
+    li.textContent = element;
   });
 
-  const menuButton = document.querySelector ('.menu-button')
   menuButton.addEventListener('click', ()=>{
-    div.classList.toggle('menu--open')
+    menu.classList.toggle('menu--open')
   })
    return menu;
-}
-const schoolMenu = menuCreator(menuItems);
-schoolMenu.append(menuCreator(menuItems));
+} 
+
+const menuButton = document.querySelector('.header');
+
+
+menuButton.append(menuCreator(menuItems));
