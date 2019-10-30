@@ -41,7 +41,7 @@ function menuCreator(menuList){
   menu.classList.add(menu);
   list.classList.add(list);
 
-  const list = document.createElement ('ul');
+  
 
   menuList.forEach(element => {
     let li = document.createElement('li');
@@ -55,5 +55,5 @@ function menuCreator(menuList){
   })
    return menu;
 }
-const menufast = menuCreator(menuOptions);
-menufast.append(menuCreator(menuOptions));
+const schoolMenu = menuCreator(menuOptions);
+schoolMenu.append(menuCreator(menuOptions));

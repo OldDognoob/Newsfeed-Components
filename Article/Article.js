@@ -118,11 +118,66 @@ const data = [
     const article = document.createElement('div');
     const articleTitle = document.createElement('h2');
     const articlepara = document.createElement('date');
+    const articlepara1 = document.createElement('p');
+    const articlepara2 = document.createElement('p');
+    const articlepara3 = document.createElement('p');
     const articlespan = document.createElement('span');
 
     article.append(div);
     article.append(h2);
     article.append(date);
+    article.append(para1);
+    article.append(para2);
+    article.append(para3);
+    article.append(span);
+
+    articleTitle.textContent=title;
+    articlepara.textContent=date;
+    para1.textContent = articleObject.firstParagraph
+    para2.textContent = articleObject.secondParagraph
+    para3.textContent = articleObject.thirdParagraph
+   
+
+    article.classList.add('article');
+    date.classList.add('date');
+    span.classList.add('expandButton');
+    
+
+
+    span.addEventListener('click', (event)=> {
+      div.classList.toggle('article-open');
+    });
+
+    return article;
+
+  }
+
+  const article = document.querySelector('.article');
+
+  
+
+articleCreator.forEch(article => {
+  console.log('Create an article . . .', article.title);
+  article.append(articleCreator(articleObject));
+});
+
+const articles = document.querySelector(".articles");
+
+function newArticles(newObject){
+ const article = document.createElement('div');
+ const articleTitle= document.createElement('h2');
+ const articlepara = document.createElement('date');
+ const articlepara1 = document.createElement('p');
+ const articlepara2 = document.createElement('p');
+ const articlepara3 = document.createElement('p');
+ const articlespan = document.createElement('span');
+
+    article.append(div);
+    article.append(h2);
+    article.append(date);
+    article.append(para1);
+    article.append(para2);
+    article.append(para3);
     article.append(span);
 
     article.classList.add('article');
@@ -133,25 +188,9 @@ const data = [
     para2.textContent = articleObject.secondParagraph
     para3.textContent = articleObject.thirdParagraph
 
-    span.addEventListener('click', (e)=> {
-      div.classList.toggle('article-open');
+    span.addEventListener('click', (event)=> {
+      newArticle.classList.toggle('article-open');
     });
 
-    return article;
-
-  }
-
-  const article = document.querySelector('.article');
-
-  div.append(h2);
-  div.append(date);
-  div.append(para1);
-  div.append(para2);
-  div.append(para3);
-  div.append(span);
-
-articleCreator.forEch(article => {
-  console.log('Create an article . . .', article.title);
-  article.append(articleCreator(articleObject));
-});
-
+    return newArticle;
+}
