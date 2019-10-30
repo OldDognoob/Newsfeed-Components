@@ -38,8 +38,9 @@ function menuCreator(menuList){
   const list = document.createElement('list');
 
   menu.append(list);
-  menu.classList.add(menu);
-  list.classList.add(list);
+
+  menu.classList.add('menu');
+  list.classList.add('list');
 
   
 
@@ -55,5 +56,5 @@ function menuCreator(menuList){
   })
    return menu;
 }
-const schoolMenu = menuCreator(menuOptions);
-schoolMenu.append(menuCreator(menuOptions));
+const schoolMenu = menuCreator(menuItems);
+schoolMenu.append(menuCreator(menuItems));

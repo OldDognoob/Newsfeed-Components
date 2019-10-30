@@ -86,6 +86,16 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+,
+  {
+  title: 'New Javascript Components',
+  date: 'Oct 30th, 2019',
+  firstParagraph: `A new magic components from two magnificent pioneers Idir the First & Dimos the Second`,
+
+  secondParagraph: `If however you want to vanish them from Universe you can send an email to Rodrigo Garcia de la Pena, the magnificent maestro of javascript componets`,
+
+  thirdParagraph: 'My advice to all of you, take a hike ..see you all'
+  }
    
 ];
 
@@ -113,84 +123,54 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-  function articleCreator (articleObject) {
+  function articleCreator (title, date, firstparagraph, secondparagraph, thirdparagraph ) {
 
     const article = document.createElement('div');
     const articleTitle = document.createElement('h2');
-    const articlepara = document.createElement('date');
+    const paradate = document.createElement('date');
     const articlepara1 = document.createElement('p');
     const articlepara2 = document.createElement('p');
     const articlepara3 = document.createElement('p');
     const articlespan = document.createElement('span');
 
-    article.append(div);
-    article.append(h2);
-    article.append(date);
-    article.append(para1);
-    article.append(para2);
-    article.append(para3);
-    article.append(span);
+    
+    article.append(articleTitle);
+    article.append(paradate);
+    article.append(articlepara1);
+    article.append(articlepara2);
+    article.append(articlepara3);
+    article.append(articlespan);
 
     articleTitle.textContent=title;
-    articlepara.textContent=date;
-    para1.textContent = articleObject.firstParagraph
-    para2.textContent = articleObject.secondParagraph
-    para3.textContent = articleObject.thirdParagraph
+    paradate.textContent=date;
+    articlepara1.textContent = firstparagraph;
+    articlepara2.textContent = secondparagraph;
+    articlepara3.textContent = thirdparagraph;
+    articlespan.textContent = 'hide';
+
    
 
+    article.classList.add('article-open');
     article.classList.add('article');
-    date.classList.add('date');
-    span.classList.add('expandButton');
+    paradate.classList.add('date');
+    articlespan.classList.add('expandButton');
     
 
 
-    span.addEventListener('click', (event)=> {
-      div.classList.toggle('article-open');
+    articlespan.addEventListener('click', (event)=> {
+      article.classList.toggle('article-open');
     });
 
     return article;
 
   }
 
-  const article = document.querySelector('.article');
+  const divArticle = document.querySelector('.articles');
 
+data.forEach(info => {
+ return  divArticle.append(articleCreator(info.title, info.date, info.firstParagraph, info.secondParagraph, info.thirdParagraph))
+});
+  
   
 
-articleCreator.forEch(article => {
-  console.log('Create an article . . .', article.title);
-  article.append(articleCreator(articleObject));
-});
-
-const articles = document.querySelector(".articles");
-
-function newArticles(newObject){
- const article = document.createElement('div');
- const articleTitle= document.createElement('h2');
- const articlepara = document.createElement('date');
- const articlepara1 = document.createElement('p');
- const articlepara2 = document.createElement('p');
- const articlepara3 = document.createElement('p');
- const articlespan = document.createElement('span');
-
-    article.append(div);
-    article.append(h2);
-    article.append(date);
-    article.append(para1);
-    article.append(para2);
-    article.append(para3);
-    article.append(span);
-
-    article.classList.add('article');
-    date.classList.add('date');
-    span.classList.add('expandButton');
-
-    para1.textContent = articleObject.firstParagraph
-    para2.textContent = articleObject.secondParagraph
-    para3.textContent = articleObject.thirdParagraph
-
-    span.addEventListener('click', (event)=> {
-      newArticle.classList.toggle('article-open');
-    });
-
-    return newArticle;
-}
+  
