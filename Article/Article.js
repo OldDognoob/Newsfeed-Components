@@ -171,6 +171,12 @@ function articleCreator(title, date, firstparagraph,secondparagraph,thirdparagra
   data.forEach(info => {
     return divArticle.append(articleCreator(info.title,info.date,info.firstParagraph,info.secondParagraph,info.thirdParagraph))
   });
+
+  gsap.to(".articles", {
+    "background-color":"#64b3f4", 
+    yoyo:true, 
+    repeat:20
+  });
   
   
 
