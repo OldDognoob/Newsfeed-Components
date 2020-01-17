@@ -86,6 +86,17 @@ const data = [
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
+,
+  {
+  title: 'New Javascript Components',
+  date: 'Oct 30th, 2019',
+  firstParagraph: `WebEuFlex best class 2020`,
+
+  secondParagraph: `Enjoy every moment with my friend Developers`,
+
+  thirdParagraph: 'Its a long way to the top but we will never forget it'
+  }
+   
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
@@ -102,7 +113,7 @@ const data = [
   Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
-
+   
   Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
   Step 3: return the entire component.
@@ -112,3 +123,63 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+// 0 -Create component function
+function articleCreator(title, date, firstparagraph,secondparagraph,thirdparagraph) {
+  // 1-Create HTML markup
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const paradate = document.createElement('date');
+  const articlepara1 = document.createElement('p');
+  const articlepara2 = document.createElement('p');
+  const articlepara3 = document.createElement('p');
+  const articlespan = document.createElement('span');
+  
+  //2-Define HTML structure
+  article.append(articleTitle);
+  article.append(paradate);
+  article.append(articlepara1);
+  article.append(articlepara2);
+  article.append(articlepara3);
+  article.append(articlespan);
+  
+  //3-Add CSS styles using classes
+  article.classList.add('article-open');
+  article.classList.add('article');
+  paradate.classList.add('date');
+  articlespan.classList.add('expandButton');
+  
+  //4-Configure text/img content
+  articleTitle.textContent = title;
+  paradate.textContent = date;
+  articlepara1.textContent = firstparagraph;
+  articlepara2.textContent = secondparagraph;
+  articlepara3.textContent = thirdparagraph;
+  articlespan.textContent = 'hide';
+  
+  //5-Add functionality
+  articlespan.addEventListener('click', (event) => {
+    //toggle the toggle class at the article-open
+  article.classList.toggle('article-open');
+  });
+  
+  
+  return article;
+  }
+ //Selecting the container where we want to add our components to
+  const divArticle= document.querySelector('.articles');
+ //6-Generate new elements from data
+  data.forEach(info => {
+    return divArticle.append(articleCreator(info.title,info.date,info.firstParagraph,info.secondParagraph,info.thirdParagraph))
+  });
+
+  gsap.to(".articles", {
+    "background-color":"#64b3f4", 
+    yoyo:true, 
+    repeat:20
+  });
+  
+  
+
+  
+
+  
